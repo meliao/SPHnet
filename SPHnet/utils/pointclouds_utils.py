@@ -4,7 +4,7 @@ import numpy as np
 from scipy.spatial import cKDTree, distance_matrix
 import vispy.scene
 from vispy.scene import visuals
-import skimage
+# import skimage
 
 
 def load_pts(path):

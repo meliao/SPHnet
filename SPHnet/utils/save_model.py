@@ -2,7 +2,7 @@ from keras.layers import Dense
 from keras.models import model_from_json
 import numpy as np
 import os
-
+import logging
 
 def save_model(path, model):
     # serialize model to JSON
@@ -52,9 +52,9 @@ def create_dir(path):
         try:
             os.mkdir(path)
         except OSError:
-            print("Creation of the directory %s failed" % path)
+            logging.warning("Creation of the directory %s failed" % path)
         else:
-            print("Successfully created the directory %s " % path)
+            logging.info("Successfully created the directory %s " % path)
 
 
 

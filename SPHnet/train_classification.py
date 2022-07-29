@@ -9,6 +9,9 @@ from sklearn.metrics import confusion_matrix
 from utils.save_model import save_matrix, create_dir, save_model
 from methods.classification3_methods import methods_list
 from data_providers.classification_datasets import datasets_list
+import logging
+
+logging.getLogger().setLevel(logging.INFO)
 
 datasets = datasets_list
 methods = methods_list
@@ -20,13 +23,14 @@ RESULTS_DIR = './results'
 
 WEIGHTS_PATH = None
 
-assert(os.path.isdir(MODELS_DIR))
-assert(os.path.isdir(RESULTS_DIR))
+assert(os.path.isdir(MODELS_DIR), MODELS_DIR)
+assert(os.path.isdir(RESULTS_DIR), RESULTS_DIR)
 SAVE_MODELS = True
 
 num_points = 1024
 batch_size = 32
-num_epochs = 250
+# num_epochs = 250
+num_epochs = 1
 SHUFFLE = True
 
 def load_dataset(dataset):

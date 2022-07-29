@@ -10,7 +10,7 @@ classes = ['airplane', 'bathtub', 'bed', 'bench', 'bookshelf', 'bottle',
            'piano', 'plant', 'radio', 'range_hood', 'sink', 'sofa', 'stairs',
            'stool', 'table', 'tent', 'toilet', 'tv_stand', 'vase', 'wardrobe', 'xbox']
 
-datset_dir = './Datasets/ModelNet40_hdf5'
+datset_dir = '/local/meliao/projects/SPHnet/data/modelnet40_ply_hdf5_2048'
 
 train_files_list = os.path.join(datset_dir, 'train_files.txt')
 val_files_list = os.path.join(datset_dir, 'test_files.txt')
@@ -22,9 +22,13 @@ val_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original_rotate
 test_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original_rotated/data_hdf5')
 """
 
-train_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
-val_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
-test_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
+# train_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
+# val_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
+# test_data_folder = os.path.join(datset_dir, 'modelnet40_hdf5_2048_original/data_hdf5')
+train_data_folder = datset_dir
+val_data_folder = datset_dir
+test_data_folder = datset_dir
+
 
 modelnet40rotated_augmented = {'name': 'modelnet40rotated_augmented',
                                'num_classes': 40,
@@ -98,5 +102,5 @@ modelnet40rot_y = {'name': 'modelnet40rot_y',
                      'test_preprocessing': ['kd_tree_idx']}
 
 
-datasets_list = [modelnet40aligned_test_rot]
+datasets_list = [modelnet40rotated_augmented]
 

@@ -1,3 +1,4 @@
+import logging
 import numpy as np
 import keras
 from utils.data_prep_utils import load_h5_files
@@ -47,6 +48,7 @@ class ClassificationProvider(keras.utils.Sequence):
     def __init__(self, files_list, data_path, n_classes, n_points,
                  batch_size=32, preprocess=list(), shuffle=True, classes=list()):
         'Initialization'
+        logging.info("Loading data from %s listed in file %s", data_path, files_list)
         self.data, self.labels = load_h5_files(data_path, files_list)
         self.labels = np.reshape(self.labels, (-1,))
         self.n_points_data = np.shape(self.data)[1]

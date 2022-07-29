@@ -1,3 +1,4 @@
+import logging
 import os
 import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -129,13 +130,14 @@ def load_h5_data_label_seg(h5_filename):
 # Read numpy array data and label from h5_filename
 def load_h5(h5_filename):
     f = h5py.File(h5_filename)
-    print(h5_filename)
+    # print(h5_filename)
     data = f['data'][:]
     label = f['label'][:]
     return (data, label)
 
 def load_h5_files(data_path, files_list_path):
-    files_list = [line.rstrip() for line in open(files_list_path)]
+    files_list = [line.rstrip().split('/')[-1] for line in open(files_list_path)]
+    # logging.info("Files_lst: %s", files_list)
     data = []
     labels = []
     for i in range(len(files_list)):

@@ -54,3 +54,17 @@ If you use our work, please cite our paper.
   year={2019}
 }
 ```
+
+## Conda environment
+```
+conda create -n SPHNet
+
+conda install python scikit-learn tensorflow=1.8 keras=2.1.5 vispy pandas pyntcloud -c conda-forge
+
+```
+
+
+## Setup Steps 
+ 1. Download ModelNet from link above
+ 2. Install conda environment
+ 3. 
